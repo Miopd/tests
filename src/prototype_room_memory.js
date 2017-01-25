@@ -17,9 +17,11 @@
  */
 Room.prototype.setMemoryCostMatrix = function(costMatrix) {
   if (!cache.rooms[this.name]) {
+    this.log('Set No cache');
     cache.rooms[this.name] = {};
   }
   if (!cache.rooms[this.name].costMatrix) {
+    this.log('Set No costMatrix');
     cache.rooms[this.name].costMatrix = {};
   }
   if (this.controller && this.controller.my) {
@@ -42,6 +44,11 @@ Room.prototype.getMemoryCostMatrix = function() {
   }
   if (!cache.rooms[this.name].costMatrix) {
     this.log('No costMatrix');
+    try {
+      throw new Error();
+    } catch (err) {
+      console.log(err.stack);
+    }
     cache.rooms[this.name].costMatrix = {};
   }
   if (!cache.rooms[this.name].costMatrix.base) {
