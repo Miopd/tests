@@ -7,6 +7,7 @@ global.roles = {};
 global.cache = {
   rooms: {}
 };
+console.log('!! No global cache !!');
 
 try {
   global.friends = require('friends');
