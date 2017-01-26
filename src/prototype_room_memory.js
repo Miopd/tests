@@ -39,11 +39,11 @@ Room.prototype.setMemoryCostMatrix = function(costMatrix) {
  */
 Room.prototype.getMemoryCostMatrix = function() {
   if (!cache.rooms[this.name]) {
-    this.log('No cache');
+    this.log('Get No cache');
     cache.rooms[this.name] = {};
   }
   if (!cache.rooms[this.name].costMatrix) {
-    this.log('No costMatrix');
+    this.log('Get No costMatrix');
     try {
       throw new Error();
     } catch (err) {
@@ -52,6 +52,7 @@ Room.prototype.getMemoryCostMatrix = function() {
     cache.rooms[this.name].costMatrix = {};
   }
   if (!cache.rooms[this.name].costMatrix.base) {
+    this.log('No base costMatrix <-- JSON.stringify the output');
     // this.log(JSON.stringify(cache.rooms[this.name].costMatrix));
     // this.log(JSON.stringify(cache.rooms[this.name]));
     if (!this.memory.costMatrix || !this.memory.costMatrix.base) {
